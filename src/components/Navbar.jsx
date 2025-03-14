@@ -45,13 +45,16 @@ const Navbar = () => {
   return (
     <nav
       ref={navRef}
-      className="w-[80%] container mx-auto rounded-full mt-4 fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-sm z-50 border-b border-gray-100 shadow-2xl shadow-blue-500 max-w-7xl"
+      className="container rounded-full mt-4 fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-sm z-50 shadow-2xl shadow-blue-500 max-w-7xl hover:bg-blue-500 hover:shadow-2xl group transition-colors duration-300"
     >
       <div className="w-full flex items-center justify-between px-4 sm:px-6 lg:px-8 md:h-20 h-16">
         {/* logo */}
         <div className="flex items-center gap-1 cursor-pointer">
-          <div className="w-4 h-4 bg-blue-600 rounded-full opacity-75 hover:opacity-100 transition-opacity duration-300"></div>
-          <div className="w-4 h-4 bg-red-500 -ml-2 rounded-full opacity-100 hover:opacity-75 transition-opacity duration-300"></div>
+          {/* <div className="w-4 h-4 bg-blue-600 rounded-full opacity-75 hover:opacity-100 transition-opacity duration-300"></div>
+          <div className="w-4 h-4 bg-red-500 -ml-2 rounded-full opacity-100 hover:opacity-75 transition-opacity duration-300"></div> */}
+          <h1 className="text-2xl font-bold text-blue-600 group-hover:text-white shadow-2xl shadow-slate-500 transition-colors duration-300">
+            Pixels.
+          </h1>
         </div>
 
         {/* Desktop Nav */}
@@ -61,10 +64,10 @@ const Navbar = () => {
               key={index}
               href={link.href}
               onClick={() => setActiveLink(link.href)}
-              className={`text-sm font-semibold text-slate-700 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-blue-600 after:transition-all after:duration-300 ${
+              className={`text-sm font-semibold relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-white after:transition-all after:duration-300 transition-colors duration-300 ${
                 activeLink === link.href
-                  ? "text-blue-600 after:w-full"
-                  : "text-black hover:text-gray-900"
+                  ? "text-blue-600 group-hover:text-white after:w-full"
+                  : "text-gray-600 group-hover:text-white"
               }`}
             >
               {link.label}
@@ -72,13 +75,13 @@ const Navbar = () => {
           ))}
         </div>
         {/* Get in touch button */}
-        <button className="hidden md:block bg-blue-600 font-bold shadow-2xl shadow-blue-500 text-white px-6 py-2 rounded-full hover:text-blue-600 hover:bg-white transition-colors duration-300">
+        <button className="hidden md:block bg-blue-600 font-bold shadow-2xl shadow-blue-500 text-white px-6 py-2 rounded-full group-hover:bg-white group-hover:text-blue-600 transition-colors duration-300">
           Login
         </button>
         {/* Mobile Menu Toggle */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="md:hidden text-2xl text-gray-700"
+          className="md:hidden text-2xl"
         >
           {isMenuOpen ? (
             <i className="ri-close-large-line"></i>
@@ -98,7 +101,7 @@ const Navbar = () => {
                     setIsMenuOpen(false);
                   }}
                   className={`block text-base font-medium ${
-                    activeLink === link.href ? "text-blue-600" : "text-gray-700"
+                    activeLink === link.href ? "text-blue-600" : ""
                   }`}
                   href={link.href}
                 >

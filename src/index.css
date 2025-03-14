@@ -4,3 +4,19 @@
 :root {
   font-family: 'Poppins', sans-serif;
 }
+@utility container {
+    width: 80%;
+    margin-inline: auto;
+  }
+ body
+ {
+  @apply bg-gradient-to-b from-blue-200 to-blue-200;
+ }
+  .btn
+  {
+    @apply bg-blue-600 font-bold shadow-2xl shadow-blue-500 text-white  hover:text-blue-600 hover:bg-white transition-colors duration-300;
+  }
+  p,h1,h2,h3,h4,h5,h6
+  {
+    @apply text-gray-600;
+  }
