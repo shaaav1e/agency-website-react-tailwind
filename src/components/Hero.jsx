@@ -1,4 +1,6 @@
 import React from "react";
+// Import the image directly
+import heroImage from "../assets/hero-image.png";
 
 const Hero = () => {
   return (
@@ -26,7 +28,7 @@ const Hero = () => {
       </div>
       {/* Right Col */}
       <div className="w-full md:w-1/2">
-        <img src="/src/assets/hero-image.png" alt="" />
+        <img src={heroImage} alt="Hero illustration" />
       </div>
     </section>
   );
