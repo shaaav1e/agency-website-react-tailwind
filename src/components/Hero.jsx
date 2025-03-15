@@ -1,10 +1,11 @@
 import React from "react";
-// Import the image directly
-import heroImage from "../assets/hero-image.png";
 
 const Hero = () => {
   return (
-    <section className="container flex flex-col md:flex-row justify-between gap-8 items-center pt-44 pb-6 px-4 sm:px-6 lg:px-8">
+    <section
+      id="home"
+      className="container flex flex-col md:flex-row justify-between gap-8 items-center pt-44 pb-6 px-4 sm:px-6 lg:px-8"
+    >
       {/* Left Col */}
       <div className="w-full md:w-1/2 space-y-8">
         {/* hero title */}
@@ -27,8 +28,19 @@ const Hero = () => {
         </div>
       </div>
       {/* Right Col */}
-      <div className="w-full md:w-1/2">
-        <img src={heroImage} alt="Hero illustration" />
+      <div className="w-full md:w-1/2 relative">
+        <div className="relative overflow-hidden rounded-2xl shadow-2xl">
+          <img
+            src="https://images.unsplash.com/photo-1497215842964-222b430dc094?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+            alt="Modern empty office with workstations and city view"
+            className="w-full h-auto object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/20 to-transparent"></div>
+        </div>
+        <div className="absolute -bottom-4 -right-4 bg-blue-500 text-white px-6 py-3 rounded-lg shadow-lg">
+          <p className="font-bold">Innovative Solutions</p>
+          <p className="text-sm">For Modern Businesses</p>
+        </div>
       </div>
     </section>
   );

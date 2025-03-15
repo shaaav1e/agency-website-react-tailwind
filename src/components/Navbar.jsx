@@ -38,7 +38,7 @@ const Navbar = () => {
       label: "Home",
       href: "#home",
     },
-    { label: "About", href: "#about" },
+    { label: "Pricing", href: "#pricing" },
     { label: "Services", href: "#services" },
     { label: "Testimonials", href: "#testimonials" },
   ];
@@ -76,7 +76,7 @@ const Navbar = () => {
         </div>
         {/* Get in touch button */}
         <button className="hidden md:block bg-blue-600 font-bold shadow-2xl shadow-blue-500 text-white px-6 py-2 rounded-full group-hover:bg-white group-hover:text-blue-600 transition-colors duration-300">
-          Login
+          Careers
         </button>
         {/* Mobile Menu Toggle */}
         <button
