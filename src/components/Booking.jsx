@@ -21,7 +21,7 @@ const Booking = () => {
     "4:00 PM",
   ];
 
-  // Handle form input changes
+  // form input changes
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -30,10 +30,9 @@ const Booking = () => {
     });
   };
 
-  // Handle form submission
+  // form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    // In a real application, you would send this data to your backend
     console.log("Form submitted:", {
       ...formData,
       date: selectedDate,
@@ -58,21 +57,17 @@ const Booking = () => {
     const currentMonth = today.getMonth();
     const currentYear = today.getFullYear();
 
-    // Get the first day of the month
     const firstDay = new Date(currentYear, currentMonth, 1);
     const startingDay = firstDay.getDay(); // 0 = Sunday, 1 = Monday, etc.
 
-    // Get the number of days in the month
     const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
 
     const days = [];
 
-    // Add empty cells for days before the first day of the month
     for (let i = 0; i < startingDay; i++) {
       days.push(<div key={`empty-${i}`} className="h-10 w-10"></div>);
     }
 
-    // Add cells for each day of the month
     for (let day = 1; day <= daysInMonth; day++) {
       const date = new Date(currentYear, currentMonth, day);
       const dateString = date.toISOString().split("T")[0];

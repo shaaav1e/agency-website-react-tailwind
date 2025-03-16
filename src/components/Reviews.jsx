@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper/modules";
 
-// Import Swiper styles
+// Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -56,7 +56,7 @@ const Reviews = () => {
     },
   ];
 
-  // Handle manual navigation with proper cleanup
+  //  manual navigation
   useEffect(() => {
     const handlePrev = () => {
       if (swiperRef.current) {
