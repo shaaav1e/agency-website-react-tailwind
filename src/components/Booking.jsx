@@ -195,7 +195,7 @@ const Booking = () => {
                   onChange={handleInputChange}
                   required
                   className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="Shawaiz"
+                  placeholder="Enter your full name..."
                 />
               </div>
 
@@ -214,7 +214,7 @@ const Booking = () => {
                   onChange={handleInputChange}
                   required
                   className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="shaaavie@gmail.com"
+                  placeholder="Enter your email address..."
                 />
               </div>
 
@@ -232,7 +232,7 @@ const Booking = () => {
                   value={formData.phone}
                   onChange={handleInputChange}
                   className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="03360018100"
+                  placeholder="Enter your phone number..."
                 />
               </div>
 

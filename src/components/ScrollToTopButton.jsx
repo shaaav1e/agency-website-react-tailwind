@@ -12,7 +12,7 @@ const ScrollToTopButton = () => {
     }
   };
 
-  // Set up scroll event listener
+  // scroll event listener
   useEffect(() => {
     window.addEventListener("scroll", toggleVisibility);
     return () => window.removeEventListener("scroll", toggleVisibility);

@@ -36,7 +36,7 @@ const Reviews = () => {
       position: "Founder, Innovate Inc",
       image: "https://randomuser.me/api/portraits/men/67.jpg",
       rating: 5,
-      text: "I've worked with many web development agencies, but none have delivered the level of service and results that Pixels has. Their strategic approach and technical expertise are unmatched.",
+      text: "I've worked with many web development agencies, but none have delivered the level of service and results that Pixels has. The final product is highly functional.",
     },
     {
       id: 4,
