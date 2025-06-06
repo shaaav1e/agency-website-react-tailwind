@@ -1,5 +1,5 @@
 import React from "react";
-
+import hero from "/hero-img.avif";
 const Hero = () => {
   return (
     <section
@@ -29,11 +29,17 @@ const Hero = () => {
       </div>
       {/* Right Col */}
       <div className="w-full md:w-1/2 relative">
+        {" "}
         <div className="relative overflow-hidden rounded-2xl shadow-2xl">
           <img
-            src="https://images.unsplash.com/photo-1497215842964-222b430dc094?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+            src={hero}
             alt="Modern empty office with workstations and city view"
             className="w-full h-auto object-cover"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+            width="600"
+            height="400"
           />
           <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/20 to-transparent"></div>
         </div>

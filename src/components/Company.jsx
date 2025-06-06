@@ -1,13 +1,13 @@
 import React from "react";
+// import amazon from "/amazon.webp";
+import hubspot from "/hubspot.webp";
+import meta from "/meta.webp";
+import notion from "/notion.webp";
+import zoom from "/zoom.webp";
+import apple from "/apple.webp";
 
 const Company = () => {
-  const logos = [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Meta_Platforms_Inc._logo.svg/1200px-Meta_Platforms_Inc._logo.svg.png",
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/1200px-Google_2015_logo.svg.png",
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1200px-Amazon_logo.svg.png",
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Microsoft_logo_%282012%29.svg/1200px-Microsoft_logo_%282012%29.svg.png",
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/1200px-Apple_logo_black.svg.png",
-  ];
+  const logos = [meta, apple, hubspot, notion, zoom];
 
   return (
     <div className="w-full overflow-hidden container py-20 px-4 sm:px-6 lg:px-8 flex flex-col items-start sm:flex-row sm:items-center">

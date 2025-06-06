@@ -1,24 +1,27 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper/modules";
-
+import john from "/john.webp";
+import micheal from "/micheal.webp";
+import david from "/david.webp";
+import robert from "/robert.webp";
+import thomas from "/thomas.webp";
 // Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 const Reviews = () => {
-  const prevRef = useRef(null);
-  const nextRef = useRef(null);
-  const swiperRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isBeginning, setIsBeginning] = useState(true);
+  const [isEnd, setIsEnd] = useState(false);
 
   const testimonials = [
     {
       id: 1,
       name: "John Smith",
       position: "CEO, TechStart",
-      image: "https://randomuser.me/api/portraits/men/32.jpg",
+      image: john,
       rating: 5,
       text: "Working with Pixels has been transformative for our business. Their team delivered a website that exceeded our expectations and has significantly improved our online presence.",
     },
@@ -26,7 +29,7 @@ const Reviews = () => {
       id: 2,
       name: "Michael Johnson",
       position: "Marketing Director, GrowthLabs",
-      image: "https://randomuser.me/api/portraits/men/44.jpg",
+      image: micheal,
       rating: 5,
       text: "The attention to detail and commitment to quality is what sets Pixels apart. They didn't just build a website, they created a powerful tool that's helping us reach new customers every day.",
     },
@@ -34,7 +37,7 @@ const Reviews = () => {
       id: 3,
       name: "David Wilson",
       position: "Founder, Innovate Inc",
-      image: "https://randomuser.me/api/portraits/men/67.jpg",
+      image: david,
       rating: 5,
       text: "I've worked with many web development agencies, but none have delivered the level of service and results that Pixels has. The final product is highly functional.",
     },
@@ -42,7 +45,7 @@ const Reviews = () => {
       id: 4,
       name: "Robert Brown",
       position: "CTO, FutureTech",
-      image: "https://randomuser.me/api/portraits/men/52.jpg",
+      image: robert,
       rating: 5,
       text: "From concept to execution, Pixels guided us through the entire process with professionalism and expertise. The final product has helped us increase conversions by 40%.",
     },
@@ -50,38 +53,11 @@ const Reviews = () => {
       id: 5,
       name: "Thomas Clark",
       position: "Owner, Clark Enterprises",
-      image: "https://randomuser.me/api/portraits/men/29.jpg",
+      image: thomas,
       rating: 5,
       text: "The team at Pixels truly understands how to create websites that not only look great but also drive business results. They've been an invaluable partner in our growth.",
     },
   ];
-
-  //  manual navigation
-  useEffect(() => {
-    const handlePrev = () => {
-      if (swiperRef.current) {
-        swiperRef.current.slidePrev();
-      }
-    };
-
-    const handleNext = () => {
-      if (swiperRef.current) {
-        swiperRef.current.slideNext();
-      }
-    };
-
-    if (prevRef.current && nextRef.current) {
-      prevRef.current.addEventListener("click", handlePrev);
-      nextRef.current.addEventListener("click", handleNext);
-    }
-
-    return () => {
-      if (prevRef.current && nextRef.current) {
-        prevRef.current.removeEventListener("click", handlePrev);
-        nextRef.current.removeEventListener("click", handleNext);
-      }
-    };
-  }, []);
 
   return (
     <section id="testimonials" className="container py-20 px-4 sm:px-6 lg:px-8">
@@ -96,6 +72,7 @@ const Reviews = () => {
       </div>
 
       <div className="relative pb-20">
+        {" "}
         <Swiper
           modules={[Pagination, Navigation]}
           spaceBetween={30}
@@ -118,11 +95,14 @@ const Reviews = () => {
             bulletActiveClass:
               "swiper-pagination-bullet-active custom-bullet-active",
           }}
-          onSwiper={(swiper) => {
-            swiperRef.current = swiper;
+          navigation={{
+            prevEl: ".custom-prev",
+            nextEl: ".custom-next",
           }}
           onSlideChange={(swiper) => {
             setActiveIndex(swiper.activeIndex);
+            setIsBeginning(swiper.isBeginning);
+            setIsEnd(swiper.isEnd);
           }}
           speed={500}
           loop={false}
@@ -159,27 +139,23 @@ const Reviews = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-
         {/* Bottom Controls */}
         <div className="mt-8 flex flex-col items-center">
           {/* Custom Pagination */}
-          <div className="swiper-custom-pagination mb-6"></div>
-
+          <div className="swiper-custom-pagination mb-6"></div>{" "}
           {/* Custom Navigation Arrows */}
           <div className="flex justify-center gap-6">
             <button
-              ref={prevRef}
-              className="p-3 w-12 h-12 rounded-full bg-blue-500 border-2 border-blue-500 flex items-center justify-center hover:bg-blue-600 transition-colors"
+              className="custom-prev p-3 w-12 h-12 rounded-full bg-blue-500 border-2 border-blue-500 flex items-center justify-center hover:bg-blue-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               aria-label="Previous testimonial"
-              disabled={activeIndex === 0}
+              disabled={isBeginning}
             >
               <i className="ri-arrow-left-s-line text-white text-xl"></i>
             </button>
             <button
-              ref={nextRef}
-              className="p-3 w-12 h-12 rounded-full bg-blue-500 border-2 border-blue-500 flex items-center justify-center hover:bg-blue-600 transition-colors"
+              className="custom-next p-3 w-12 h-12 rounded-full bg-blue-500 border-2 border-blue-500 flex items-center justify-center hover:bg-blue-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               aria-label="Next testimonial"
-              disabled={activeIndex === testimonials.length - 1}
+              disabled={isEnd}
             >
               <i className="ri-arrow-right-s-line text-white text-xl"></i>
             </button>
